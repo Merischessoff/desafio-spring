@@ -3,11 +3,16 @@ package com.desafio.api.modelo;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Voto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idVoto;
 	private String cpfAssociado;
 	private String escolha;
