@@ -7,14 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Pauta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPauta;
-	//@NotEmpty(message="Preenchimento obrigatório")
-	//@Length(min=5, max=80, message="O tamanho deve ser entre 5 e 80 caracteres")
 	private String nomePauta;
 	private String descricaoPauta;
 	

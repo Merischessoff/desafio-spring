@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.desafio.api.DTO.PautaDTO;
 import com.desafio.api.modelo.Pauta;
 import com.desafio.api.servico.PautaServico;
 
@@ -26,7 +27,7 @@ public class PautaControle {
 	@PostMapping(value="/adicionar")
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiOperation(value = "Adicionar pauta")
-	public ResponseEntity<Pauta> adicionar( @RequestBody Pauta pauta) {		
+	public ResponseEntity<Pauta> adicionar( @RequestBody PautaDTO pauta) {		
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(pautaServico.criarPauta(pauta));
 	}	

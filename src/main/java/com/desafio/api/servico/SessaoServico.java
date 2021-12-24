@@ -22,7 +22,7 @@ public class SessaoServico {
 	@Autowired
 	private PautaRepositorio pautaRepositorio;
 	
-	private ValidacaoSessaoServico validacaoSessaoServico;
+	private ValidacaoSessaoServico validacaoSessaoServico = new ValidacaoSessaoServico();
 	
 	public Sessao abrirSessao(Sessao sessao) {
 		validacaoSessaoServico.validaAbrirSessao(sessao);

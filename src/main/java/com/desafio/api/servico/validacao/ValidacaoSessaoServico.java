@@ -14,8 +14,8 @@ public class ValidacaoSessaoServico {
 	@Autowired
 	private SessaoRepositorio sessaoRepositorio;
 	
-	private static int ZERO_SESSION_TIME_IN_MINUTES = 0;
-	private static int DEFAULT_SESSIONN_TIME_IN_MINUTES = 1;
+	private static int ZERO_SESSAO_TEMPO_EM_MINUTOS = 0;
+	private static int PADRAO_SESSAO_TEMPO_EM_MINUTOS = 1;
 	
 	public void validaAbrirSessao(Sessao sessao) {
 		if(sessao.getPauta().getIdPauta() == null)
@@ -27,7 +27,7 @@ public class ValidacaoSessaoServico {
 		if(sessaoRepositorio.buscaPautaSessaoAberta(sessao.getPauta().getIdPauta()) != null)
 			throw new ExcessaoDesafioServico("Ja existe uma sessão aberta para a agenda informada!");
 		
-		if(sessao.getTempoDeterminado() <= ZERO_SESSION_TIME_IN_MINUTES)
-			sessao.setTempoDeterminado(DEFAULT_SESSIONN_TIME_IN_MINUTES);
+		if(sessao.getTempoDeterminado() <= ZERO_SESSAO_TEMPO_EM_MINUTOS)
+			sessao.setTempoDeterminado(PADRAO_SESSAO_TEMPO_EM_MINUTOS);
 	}
 }

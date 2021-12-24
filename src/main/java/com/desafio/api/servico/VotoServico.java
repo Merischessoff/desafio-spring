@@ -26,7 +26,7 @@ public class VotoServico {
 	@Autowired
 	private SessaoRepositorio sessaoRepositorio;
 	
-	private ValidacaoVotoServico validacaoVotoServico;
+	private ValidacaoVotoServico validacaoVotoServico = new ValidacaoVotoServico();
 	
 	
 	private Sessao sessao;
