@@ -63,13 +63,4 @@ public class ValidacaoVotoServico {
 		if(voto.getCpfAssociado() == null)
 			throw new ExcessaoDesafioServico("Cpf do associado deve ser informado.");		
 	}
-	
-//	private void validateIfAssociateCannotVoteOrCPFIsInvalid(Voto voto) {
-//		try {
-//			if(cpfClient.getCpf(voteRequest.getCpfAssociate()).getStatus().equals(AssociacaoStatusEnum.ASSOCIATE_CANNOT_VOTE.getValue()))
-//				throw new ChallengeException("Associate cannot vote.");
-//		} catch (FeignException e) {
-//			throw new ChallengeException("Associate's CPF is invalid.");
-//		}
-//	}
 }

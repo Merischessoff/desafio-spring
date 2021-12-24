@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.desafio.api.modelo.Sessao;
+import com.desafio.api.DTO.SessaoDTO;
 import com.desafio.api.modelo.Pauta;
 import com.desafio.api.repositorio.PautaRepositorio;
 import com.desafio.api.repositorio.SessaoRepositorio;
@@ -24,11 +25,14 @@ public class SessaoServico {
 	
 	private ValidacaoSessaoServico validacaoSessaoServico = new ValidacaoSessaoServico();
 	
-	public Sessao abrirSessao(Sessao sessao) {
-		validacaoSessaoServico.validaAbrirSessao(sessao);
-		sessao.setTempoSessao(LocalDateTime.now().plusMinutes(sessao.getTempoDeterminado()));
-		Optional<Pauta> pautaOp = pautaRepositorio.findById(sessao.getPauta().getIdPauta());
+	public Sessao abrirSessao(SessaoDTO sessaoDTO) {
+		Sessao sessao = new Sessao();
+		sessao.setIdSessao(null);
+		sessao.setTempoDeterminado(sessaoDTO.getTempoDeterminado());
+		sessao.setTempoSessao(LocalDateTime.now().plusMinutes(sessaoDTO.getTempoDeterminado()));
+		Optional<Pauta> pautaOp = pautaRepositorio.findById(sessaoDTO.getIdPauta());
 		sessao.setPauta(pautaOp.get());
+		//validacaoSessaoServico.validaAbrirSessao(sessao);
 		//log.info("Session opened successfully.");
 		return sessaoRepositorio.save(sessao);
 	}

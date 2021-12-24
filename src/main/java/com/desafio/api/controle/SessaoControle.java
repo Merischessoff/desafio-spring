@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.desafio.api.DTO.SessaoDTO;
 import com.desafio.api.modelo.Sessao;
 
 import com.desafio.api.servico.SessaoServico;
@@ -26,8 +27,8 @@ public class SessaoControle {
 	@PostMapping(value="/abrir")
 	@ApiOperation(value = "Abrir sessão para uma pauta")
 	public ResponseEntity<Sessao> abrirSessao(
-			@RequestBody Sessao sessao) {		
+			@RequestBody SessaoDTO sessaoDTO) {		
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(sessaoServico.abrirSessao(sessao));
+				.body(sessaoServico.abrirSessao(sessaoDTO));
 	}
 }

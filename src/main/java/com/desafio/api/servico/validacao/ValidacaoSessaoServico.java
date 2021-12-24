@@ -20,9 +20,6 @@ public class ValidacaoSessaoServico {
 	public void validaAbrirSessao(Sessao sessao) {
 		if(sessao.getPauta().getIdPauta() == null)
 			throw new ExcessaoDesafioServico("É necessário ter uma pauta na sessão!");
-
-		if(!sessaoRepositorio.existsById(sessao.getIdSessao()))
-			throw new ExcessaoDesafioServico("Sessão não existe!");
 		
 		if(sessaoRepositorio.buscaPautaSessaoAberta(sessao.getPauta().getIdPauta()) != null)
 			throw new ExcessaoDesafioServico("Ja existe uma sessão aberta para a agenda informada!");

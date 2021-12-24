@@ -16,8 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Sessao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
 	private Long idSessao;
 	private int tempoDeterminado;
+	
+	@JsonIgnore
 	private LocalDateTime tempoSessao;
 	
 	@OneToOne

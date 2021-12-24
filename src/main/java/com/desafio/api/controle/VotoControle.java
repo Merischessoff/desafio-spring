@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.desafio.api.DTO.VotoSessaoDTO;
 import com.desafio.api.modelo.Voto;
 import com.desafio.api.servico.VotoServico;
 
@@ -25,10 +26,10 @@ public class VotoControle {
 	@Autowired
 	private VotoServico votoServico;
 	
-	@PostMapping(value="/votoSessaoPauta")
+	@PostMapping(value="/votoSessao")
 	@ApiOperation(value = "Obtém o voto de um associado em uma sessão")
 	public ResponseEntity<Voto> votoSessaoPauta(
-			@RequestBody Voto voto) {
+			@RequestBody VotoSessaoDTO voto) {
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(votoServico.votar(voto));
 	}
