@@ -1,21 +1,20 @@
 package com.desafio.api.servico;
 
-import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
-import javax.websocket.Session;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.desafio.api.DesafioAplicacao;
+import com.desafio.api.DTO.VotoDTO;
 import com.desafio.api.DTO.VotoSessaoDTO;
-import com.desafio.api.modelo.Pauta;
 import com.desafio.api.modelo.Sessao;
 import com.desafio.api.modelo.Voto;
 import com.desafio.api.repositorio.SessaoRepositorio;
 import com.desafio.api.repositorio.VotoRepositorio;
-import com.desafio.api.servico.excessao.ExcessaoDesafioServico;
-import com.desafio.api.servico.validacao.ValidacaoPautaServico;
 import com.desafio.api.servico.validacao.ValidacaoVotoServico;
 
 @Service
@@ -29,13 +28,14 @@ public class VotoServico {
 	
 	private ValidacaoVotoServico validacaoVotoServico = new ValidacaoVotoServico();
 	
+	private static Logger logger = LoggerFactory.getLogger(DesafioAplicacao.class);
 	
-	private Sessao sessao;
-	
-	public Voto resultadoVotos(Long idSessao) {	
-		validacaoVotoServico.validaResultadoVotos(idSessao);
-		Voto voto = votoRepositorio.resultadoVotos(idSessao);
-		//log.info("Voting result calculated successfully.");
+	public VotoDTO resultadoVotos(Long idSessao) {	
+		Optional<Sessao> sessaoOp = sessaoRepositorio.findById(idSessao);
+		Sessao sessao = sessaoOp.get();
+		//validacaoVotoServico.validaResultadoVotos(sessao);
+		VotoDTO voto = votoRepositorio.resultadoVotos(idSessao);
+		logger.info("Resultado votos API");
 		return voto;
 	}
 		
@@ -46,11 +46,12 @@ public class VotoServico {
 		voto.setIdVoto(null);
 		Optional<Sessao> sessaoOp = sessaoRepositorio.findById(votoDTO.getIdSessao());
 		voto.setSessao(sessaoOp.get());
-		//validacaoVotoServico.validaInformacoes(voto);
-		//validacaoVotoServico.validaAssociacaoVoto(voto);
-		//validacaoVotoServico.validaEscolhaVoto(voto);
-		//validacaoVotoServico.validaExisteSessaoFechada(voto);
-		//log.info("Vote successfully counted.");
+		validacaoVotoServico.validaInformacoes(voto);
+		List<Voto> votos = votoRepositorio.findAll();
+		validacaoVotoServico.validaAssociacaoVoto(voto, votos);
+		validacaoVotoServico.validaEscolhaVoto(voto);
+		validacaoVotoServico.validaExisteSessaoFechada(voto);
+		logger.info("Votando API");
 		return votoRepositorio.save(voto);
 	}
 

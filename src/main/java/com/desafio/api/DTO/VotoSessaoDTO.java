@@ -1,24 +1,12 @@
 package com.desafio.api.DTO;
 
-import java.time.LocalDateTime;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
-import com.desafio.api.modelo.Pauta;
-import com.desafio.api.modelo.Sessao;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class VotoSessaoDTO {
 	
 	private String cpfAssociado;
-	private String escolha;
+	private int escolha;
 	private Long idSessao;
 	
-	public VotoSessaoDTO(String cpfAssociado, String escolha, Long idSessao) {
+	public VotoSessaoDTO(String cpfAssociado, int escolha, Long idSessao) {
 		super();
 		this.cpfAssociado = cpfAssociado;
 		this.escolha = escolha;
@@ -37,11 +25,11 @@ public class VotoSessaoDTO {
 		this.cpfAssociado = cpfAssociado;
 	}
 
-	public String getEscolha() {
+	public int getEscolha() {
 		return escolha;
 	}
 
-	public void setEscolha(String escolha) {
+	public void setEscolha(int escolha) {
 		this.escolha = escolha;
 	}
 

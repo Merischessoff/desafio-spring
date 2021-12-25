@@ -6,11 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.desafio.api.DTO.SessaoDTO;
 import com.desafio.api.modelo.Sessao;
-
 import com.desafio.api.servico.SessaoServico;
 
 import io.swagger.annotations.Api;

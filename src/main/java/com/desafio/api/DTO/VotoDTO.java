@@ -8,13 +8,13 @@ public class VotoDTO {
 	
 	private Sessao sessao;
 	private Long contagemVotosSim;
-	private Long contagemVotosNão;
+	private Long contagemVotosNao;
 	
 	public VotoDTO(Sessao sessao, Long contagemVotosSim, Long contagemVotosNão) {
 		super();
 		this.sessao = sessao;
 		this.contagemVotosSim = contagemVotosSim;
-		this.contagemVotosNão = contagemVotosNão;
+		this.contagemVotosNao = contagemVotosNão;
 	}
 
 	public VotoDTO() {
@@ -37,37 +37,14 @@ public class VotoDTO {
 		this.contagemVotosSim = contagemVotosSim;
 	}
 
-	public Long getContagemVotosNão() {
-		return contagemVotosNão;
+	public Long getContagemVotosNao() {
+		return contagemVotosNao;
 	}
 
-	public void setContagemVotosNão(Long contagemVotosNão) {
-		this.contagemVotosNão = contagemVotosNão;
+	public void setContagemVotosNao(Long contagemVotosNão) {
+		this.contagemVotosNao = contagemVotosNão;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(contagemVotosNão, contagemVotosSim, sessao);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		VotoDTO other = (VotoDTO) obj;
-		return Objects.equals(contagemVotosNão, other.contagemVotosNão)
-				&& Objects.equals(contagemVotosSim, other.contagemVotosSim) && Objects.equals(sessao, other.sessao);
-	}
-
-	@Override
-	public String toString() {
-		return "VotoDTO [sessao=" + sessao + ", contagemVotosSim=" + contagemVotosSim + ", contagemVotosNão="
-				+ contagemVotosNão + "]";
-	}
 	
 	
 	

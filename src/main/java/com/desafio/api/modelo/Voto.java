@@ -15,13 +15,13 @@ public class Voto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idVoto;
 	private String cpfAssociado;
-	private String escolha;
+	private int escolha;
 	
 	@OneToOne
-	@JoinColumn(name = "idSessao")
+	@JoinColumn(name = "ID_SESSAO")
 	private Sessao sessao;
 
-	public Voto(Long idVoto, String cpfAssociado, String escolha, Sessao sessao) {
+	public Voto(Long idVoto, String cpfAssociado, int escolha, Sessao sessao) {
 		super();
 		this.idVoto = idVoto;
 		this.cpfAssociado = cpfAssociado;
@@ -49,11 +49,11 @@ public class Voto {
 		this.cpfAssociado = cpfAssociado;
 	}
 
-	public String getEscolha() {
+	public int getEscolha() {
 		return escolha;
 	}
 
-	public void setEscolha(String escolha) {
+	public void setEscolha(int escolha) {
 		this.escolha = escolha;
 	}
 

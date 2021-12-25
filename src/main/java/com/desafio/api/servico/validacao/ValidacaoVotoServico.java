@@ -1,30 +1,22 @@
 package com.desafio.api.servico.validacao;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
+import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.desafio.api.enums.VotoEscolhaEnum;
 import com.desafio.api.modelo.Sessao;
 import com.desafio.api.modelo.Voto;
-import com.desafio.api.repositorio.SessaoRepositorio;
-import com.desafio.api.repositorio.VotoRepositorio;
 import com.desafio.api.servico.excessao.ExcessaoDesafioServico;
 
+@Service
 public class ValidacaoVotoServico {
 	
-	@Autowired
-	private SessaoRepositorio sessaoRepositorio;
-	
-	@Autowired
-	private VotoRepositorio votoRepositorio;
 		
-	public void validaResultadoVotos(Long idSessao) {
-		if(idSessao == null)
+	public void validaResultadoVotos(Sessao sessao) {
+		if(sessao.getIdSessao() == null)
 			throw new ExcessaoDesafioServico("É necessário o id da sessão para a contagem dos votos!");
-		Optional<Sessao> sessaoOp = sessaoRepositorio.findById(idSessao);
-		Sessao sessao = sessaoOp.get();
+		
 		if(sessao == null)
 			throw new ExcessaoDesafioServico("Sessao Não foi encontrada.");
 		
@@ -33,31 +25,31 @@ public class ValidacaoVotoServico {
 	}
 	
 	public void validaEscolhaVoto(Voto voto) {
-		voto.setEscolha(voto.getEscolha().toUpperCase().trim());
-		if(!(VotoEscolhaEnum.ESCOLHA_SIM).equals(voto.getEscolha()) && !(VotoEscolhaEnum.ESCOLHA_NAO.getValue()).equals(voto.getEscolha()))
-			throw new ExcessaoDesafioServico("Voto Inválido! Use 'SIM' ou 'NÂO'");
+		if(voto.getEscolha() < 0 && voto.getEscolha() > 1) 
+			throw new ExcessaoDesafioServico("Voto Inválido! Use '1' para sim ou '0' para não");
 	}
 	
 	public void validaExisteSessaoFechada(Voto voto) {
-		Optional<Sessao> sessaoOp = sessaoRepositorio.findById(voto.getSessao().getIdSessao());
-		Sessao sessao = sessaoOp.get();
-		if(sessao == null)
+		if(voto.getSessao() == null)
 			throw new ExcessaoDesafioServico("Sessão de votação não encontrada.");
 		
-		if(sessao.getTempoSessao().isBefore(LocalDateTime.now()))
+		if(voto.getSessao().getTempoSessao().isBefore(LocalDateTime.now()))
 			throw new ExcessaoDesafioServico("Sessão de votação fechada.");		
 	}
 	
-	public void validaAssociacaoVoto(Voto voto) {
-		if(votoRepositorio.buscaAssociacaoVoto(voto.getSessao().getIdSessao(), voto.getCpfAssociado())  != null)
-			throw new ExcessaoDesafioServico("Voto de associado já contado.");
+	public void validaAssociacaoVoto(Voto voto, List<Voto> votos) {
+		for(Voto v : votos) {
+			if(v.getSessao().getIdSessao() == voto.getSessao().getIdSessao() 
+				&& v.getCpfAssociado().equalsIgnoreCase(voto.getCpfAssociado()))
+				throw new ExcessaoDesafioServico("Voto de associado já contado.");
+		}
 	}
 	
 	public  void validaInformacoes(Voto voto) {
 		if(voto.getSessao() == null)
 			throw new ExcessaoDesafioServico("Sessão deve ser informada.");
 		
-		if(voto.getEscolha()  == null)
+		if(voto.getEscolha() > 1 && voto.getEscolha() < 0)
 			throw new ExcessaoDesafioServico("Escolha deve ser informada.");
 		
 		if(voto.getCpfAssociado() == null)

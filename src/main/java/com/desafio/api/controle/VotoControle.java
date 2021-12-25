@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.desafio.api.DTO.VotoDTO;
 import com.desafio.api.DTO.VotoSessaoDTO;
 import com.desafio.api.modelo.Voto;
 import com.desafio.api.servico.VotoServico;
@@ -38,8 +39,8 @@ public class VotoControle {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
 	@ApiOperation(value = "Resultado da votação da sessão")
-	public Voto resultadoSessao(
-			@RequestParam(required=true) Long id) {
+	public VotoDTO resultadoSessao(
+		@RequestParam(required=true) Long id) {
 		return votoServico.resultadoVotos(id);
 	}
 }

@@ -1,7 +1,5 @@
 package com.desafio.api.DTO;
 
-import com.desafio.api.modelo.Pauta;
-
 public class SessaoDTO {
 	private int tempoDeterminado;
 	private long idPauta;

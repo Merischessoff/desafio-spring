@@ -24,7 +24,7 @@ public class Sessao {
 	private LocalDateTime tempoSessao;
 	
 	@OneToOne
-	@JoinColumn(name = "idPauta")
+	@JoinColumn(name = "ID_PAUTA")
 	private Pauta pauta;
 
 	public Sessao(Long idSessao, int tempoDeterminado, LocalDateTime tempoSessao, Pauta pauta) {

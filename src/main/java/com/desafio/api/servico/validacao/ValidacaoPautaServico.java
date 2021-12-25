@@ -1,7 +1,5 @@
 package com.desafio.api.servico.validacao;
 
-import org.springframework.context.annotation.Bean;
-
 import com.desafio.api.modelo.Pauta;
 import com.desafio.api.servico.excessao.ExcessaoDesafioServico;
 
