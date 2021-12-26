@@ -280,3 +280,34 @@ select sessao1_.id_sessao as col_0_0_, sum(case when ESCOLHA=1 then 1 else 0 end
 2021-12-25 21:56:27,833 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [RMI TCP Connection(126)-127.0.0.1] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2021-12-25 21:56:28,476 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(126)-127.0.0.1] HikariPool-5 - Shutdown initiated...
 2021-12-25 21:56:28,959 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(126)-127.0.0.1] HikariPool-5 - Shutdown completed.
+2021-12-25 22:26:00,629 INFO com.desafio.api.DesafioAplicacao [restartedMain] Starting DesafioAplicacao using Java 17.0.1 on meri-Lenovo-ideapad-330S-14IKB with PID 40262 (/home/meri/Documents/workspace-spring-tool-suite-4-4.13.0.RELEASE/desafio/target/classes started by meri in /home/meri/Documents/workspace-spring-tool-suite-4-4.13.0.RELEASE/desafio)
+2021-12-25 22:26:00,630 INFO com.desafio.api.DesafioAplicacao [restartedMain] No active profile set, falling back to default profiles: default
+2021-12-25 22:26:00,663 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-25 22:26:00,663 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-25 22:26:01,196 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-25 22:26:01,231 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 29 ms. Found 3 JPA repository interfaces.
+2021-12-25 22:26:01,645 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-12-25 22:26:01,652 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-12-25 22:26:01,653 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-12-25 22:26:01,653 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-25 22:26:01,710 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-12-25 22:26:01,711 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1048 ms
+2021-12-25 22:26:01,736 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-12-25 22:26:01,903 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-12-25 22:26:01,908 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2'. Database available at 'jdbc:h2:file:~/desafio'
+2021-12-25 22:26:02,011 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-25 22:26:02,044 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-25 22:26:02,210 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-25 22:26:02,295 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-12-25 22:26:02,714 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-25 22:26:02,720 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-25 22:26:03,150 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-25 22:26:03,342 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-12-25 22:26:03,414 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [restartedMain] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-12-25 22:26:03,486 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-12-25 22:26:03,496 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-25 22:26:03,676 INFO com.desafio.api.DesafioAplicacao [restartedMain] Started DesafioAplicacao in 3.293 seconds (JVM running for 3.886)
+2021-12-25 22:26:03,679 INFO com.desafio.api.DesafioAplicacao [restartedMain] Inicio da API Desafio
+2021-12-25 22:26:19,776 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-25 22:26:19,776 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-12-25 22:26:19,777 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
