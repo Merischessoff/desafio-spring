@@ -1,9 +1,14 @@
 package com.desafio.api.DTO;
 
 import java.util.Objects;
+import javax.validation.constraints.NotEmpty;
+
 
 public class PautaDTO {
+	
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String nomePauta;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String descricaoPauta;
 	
 	public PautaDTO(String nomePauta, String descricaoPauta) {

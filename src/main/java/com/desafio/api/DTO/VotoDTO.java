@@ -1,7 +1,5 @@
 package com.desafio.api.DTO;
 
-import java.util.Objects;
-
 import com.desafio.api.modelo.Sessao;
 
 public class VotoDTO {

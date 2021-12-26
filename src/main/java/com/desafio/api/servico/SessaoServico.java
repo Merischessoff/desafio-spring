@@ -10,13 +10,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.desafio.api.modelo.Sessao;
 import com.desafio.api.DesafioAplicacao;
 import com.desafio.api.DTO.SessaoDTO;
 import com.desafio.api.modelo.Pauta;
+import com.desafio.api.modelo.Sessao;
 import com.desafio.api.repositorio.PautaRepositorio;
 import com.desafio.api.repositorio.SessaoRepositorio;
-import com.desafio.api.servico.excessao.ExcessaoDesafioServico;
 import com.desafio.api.servico.validacao.ValidacaoSessaoServico;
 
 @Service

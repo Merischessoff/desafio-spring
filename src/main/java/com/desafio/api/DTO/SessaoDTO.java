@@ -1,7 +1,11 @@
 package com.desafio.api.DTO;
 
+import javax.validation.constraints.NotEmpty;
+
 public class SessaoDTO {
+	@NotEmpty(message="Preenchimento obrigatório")
 	private int tempoDeterminado;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private long idPauta;
 	
 	public SessaoDTO(int tempoDeterminado, long idPauta) {
