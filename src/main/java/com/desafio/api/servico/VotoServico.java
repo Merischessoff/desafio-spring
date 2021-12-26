@@ -33,7 +33,7 @@ public class VotoServico {
 	public VotoDTO resultadoVotos(Long idSessao) {	
 		Optional<Sessao> sessaoOp = sessaoRepositorio.findById(idSessao);
 		Sessao sessao = sessaoOp.get();
-		//validacaoVotoServico.validaResultadoVotos(sessao);
+		validacaoVotoServico.validaResultadoVotos(sessao);
 		VotoDTO voto = votoRepositorio.resultadoVotos(idSessao);
 		logger.info("Resultado votos API");
 		return voto;

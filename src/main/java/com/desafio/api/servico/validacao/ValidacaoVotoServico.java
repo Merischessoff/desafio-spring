@@ -19,9 +19,6 @@ public class ValidacaoVotoServico {
 		
 		if(sessao == null)
 			throw new ExcessaoDesafioServico("Sessao Não foi encontrada.");
-		
-		if(sessao.getTempoSessao().isAfter(LocalDateTime.now()))
-			throw new ExcessaoDesafioServico("A sessão de votação ainda está aberta.");
 	}
 	
 	public void validaEscolhaVoto(Voto voto) {
