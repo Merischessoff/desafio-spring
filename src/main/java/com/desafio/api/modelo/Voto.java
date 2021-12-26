@@ -18,7 +18,7 @@ public class Voto {
 	private int escolha;
 	
 	@OneToOne
-	@JoinColumn(name = "ID_SESSAO")
+	@JoinColumn(name = "ID_SESSAO_VOTO")
 	private Sessao sessao;
 
 	public Voto(Long idVoto, String cpfAssociado, int escolha, Sessao sessao) {
